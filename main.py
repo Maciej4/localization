@@ -3,12 +3,16 @@ import math
 import random
 import csv
 
-lables = ['x', 'y', 'r', '0', '1', '2', '3']
+win_on =  False
 
-win = GraphWin("Arena", 600,  600)
-win.setBackground("#FFFFFF")
-rect = Rectangle(Point(50, 50), Point(550, 550))
-rect.draw(win)
+lables = ['x', 'y', 'r', '0', '1', '2', '3']
+#lables = ['r', '0', '1', '2', '3']
+
+if win_on:
+    win = GraphWin("Arena", 600,  600)
+    win.setBackground("#FFFFFF")
+    rect = Rectangle(Point(50, 50), Point(550, 550))
+    rect.draw(win)
 
 A = ((50, 50), (550, 50))
 B = ((50, 50), (50, 550))
@@ -56,8 +60,9 @@ def line_intersection(line1, line2):
     if not intersect(line1[0], line1[1], line2[0], line2[1]):
         return "fail"
 
-    cir = Circle(Point(x, y), 10)
-    cir.draw(win)
+    if win_on:
+        cir = Circle(Point(x, y), 10)
+        cir.draw(win)
 
     return x, y
 
@@ -86,60 +91,68 @@ def draw_robot(center, rot):
     p1 = calc_vec(center, rs, rot+3*mp)
     p2 = calc_vec(center, rs, rot+5*mp)
     p3 = calc_vec(center, rs, rot+7*mp)
-    draw_line(p0, p1)
-    draw_line(p0, p3)
-    draw_line(p1, p2)
-    draw_line(p2, p3)
+    if win_on:
+        draw_line(p0, p1)
+        draw_line(p0, p3)
+        draw_line(p1, p2)
+        draw_line(p2, p3)
 
     P0 = calc_vec(center, 1000, rot+0*mp)
     P1 = calc_vec(center, 1000, rot+2*mp)
     P2 = calc_vec(center, 1000, rot+4*mp)
     P3 = calc_vec(center, 1000, rot+6*mp)
-    draw_line(center, P0)
-    draw_line(center, P1)
-    draw_line(center, P2)
-    draw_line(center, P3)
+    if win_on:
+        draw_line(center, P0)
+        draw_line(center, P1)
+        draw_line(center, P2)
+        draw_line(center, P3)
 
     p4x = (p2[0] + p3[0])/2
     p4y = (p2[1] + p3[1])/2
     p4 = (p4x, p4y)
-    draw_line(p0, p4)
-    draw_line(p1, p4)
+    if win_on:
+        draw_line(p0, p4)
+        draw_line(p1, p4)
 
-    i0 = distance(center, arena_intersection((center, P0)))
-    i1 = distance(center, arena_intersection((center, P1)))
-    i2 = distance(center, arena_intersection((center, P2)))
-    i3 = distance(center, arena_intersection((center, P3)))
+    i0 = round(distance(center, arena_intersection((center, P0))))
+    i1 = round(distance(center, arena_intersection((center, P1))))
+    i2 = round(distance(center, arena_intersection((center, P2))))
+    i3 = round(distance(center, arena_intersection((center, P3))))
 
     return (i0, i1, i2, i3)
 
-with open('train_data.csv', 'w') as writeFile:
+with open('test_data.csv', 'w') as writeFile:
     writer = csv.writer(writeFile)
 
     a = ((300, 300), (200, 0))
     #print(arena_intersection(a))
     robot_pos = (300, 300)
-    draw_robot(robot_pos, 0)
+    if win_on:
+        draw_robot(robot_pos, 0)
     writer.writerow(lables)
     #draw_line(a[0], a[1])
-
-    while True:
-        pt0 = win.getMouse()
-        win.clear()
-        ptx = int(pt0.getX())
-        pty = int(pt0.getY())
-        if (pty > 575 and ptx > 575):
-            win.close()
-            writeFile.close()
-        rect = Rectangle(Point(50, 50), Point(550, 550))
-        rect.draw(win)
+    x = 0
+    count = 1000
+    while x  < count:
+        if win_on:
+            pt0 = win.getMouse()
+            win.clear()
+            ptx = int(pt0.getX())
+            pty = int(pt0.getY())
+            if (pty > 575 and ptx > 575):
+                win.close()
+                writeFile.close()
+            rect = Rectangle(Point(50, 50), Point(550, 550))
+            rect.draw(win)
         #pt1 = (ptx, pty)
         robot_pos = rand_pos()
         #robot_ang = -math.atan2(robot_pos[0]-ptx, robot_pos[1]-pty)
         robot_ang = 2 * (random.random() - 0.5) * math.pi
         lidars = draw_robot((robot_pos), robot_ang)
         row = [robot_pos[0], robot_pos[1], robot_ang, lidars[0], lidars[1], lidars[2], lidars[3]]
+        #row = [robot_ang, lidars[0], lidars[1], lidars[2], lidars[3]]
         writer.writerow(row)
+        x += 1
         #print(arena_intersection(((300, 300), pt1)))
         #print("-----")
         #print(line_intersection(A, ((300, 300), pt1)))
