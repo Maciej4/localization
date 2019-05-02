@@ -121,7 +121,7 @@ def draw_robot(center, rot):
 
     return (i0, i1, i2, i3)
 
-with open('test_data.csv', 'w') as writeFile:
+with open('train_data.csv', 'w') as writeFile:
     writer = csv.writer(writeFile)
 
     a = ((300, 300), (200, 0))
@@ -132,7 +132,7 @@ with open('test_data.csv', 'w') as writeFile:
     writer.writerow(lables)
     #draw_line(a[0], a[1])
     x = 0
-    count = 1000
+    count = 10000
     while x  < count:
         if win_on:
             pt0 = win.getMouse()
