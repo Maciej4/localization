@@ -3,7 +3,7 @@ import math
 import random
 import csv
 
-win_on =  False
+win_on = False
 
 lables = ['x', 'y', 'r', '0', '1', '2', '3']
 #lables = ['r', '0', '1', '2', '3']

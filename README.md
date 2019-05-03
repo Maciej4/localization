@@ -4,8 +4,13 @@ Uses neural networks to find the position of a robot in an arena.
 ## Data Generation
 Running `main.py` will generate `train_data.csv`, which is fed into the neural network.
 
+### Enable Graphics
+*Enabling graphics will decrease performance*
+The win_on variable should be changed from `win_on = False` to `win_on = True`.
+
 ### Changing Write File
-To change the location where the data will be written to, simply change the name in the open command.
+To change the location where the data will be written to, change the name in the open command.
+
 Original: `train_data.csv`
 
 ```python
@@ -22,6 +27,7 @@ with open(`test_data.csv`, `w`) as writeFile:
 
 ### Changing Datapoint Count
 To change the number of datapoints written, change the value of **count**
+
 Original
 
 ```python
@@ -49,7 +55,7 @@ Uses train_data from this github repository to train the neural networks. To run
 ### Using Your Own Data
 Go to your branch, created in the **Uploading Data** section. Click on the `train_data.csv` file, on the top right corner of the file press `raw`. Copy the url and paste your url to replace the url seen after wget. Repeat with your `test_data.csv`.
 
-```python
+```
 !wget https://raw.githubusercontent.com/Maciej4/localization/master/train_data.csv
 !wget https://raw.githubusercontent.com/Maciej4/localization/master/test_data.csv
 ```
