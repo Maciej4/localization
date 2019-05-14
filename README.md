@@ -61,4 +61,4 @@ Go to your branch, created in the **Uploading Data** section. Click on the `trai
 ```
 
 ### Further Documentation
-Further documentation is located [in this file](https://github.com/Maciej4/localization/blob/master/testing.md). It includes the documentation necessary for optimizing the neural network. In addition it includes a log of the tests, used to find the optimal neural network for the given task of localization.
+Further documentation is located [in this file](https://github.com/Maciej4/localization/blob/master/docs/testing.md). It includes the documentation necessary for optimizing the neural network. In addition it includes a log of the tests, used to find the optimal neural network for the given task of localization.
