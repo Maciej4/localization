@@ -83,9 +83,16 @@ optimizer = tf.keras.optimizers.Adam(0.002)
 
 The value in the parenthesis is the Learning Rate. The Learning Rate determines how quickly the neural network learns. However, faster is not always better as the network may overshoot and never be very accurate. If the Learning Rate is too slow, the network may never converge or may take extremely long to train. In this case the `Adam` optimizer is used, several different optimizers exist, however for the current value of Learning Rate Adam is the best optimizer.
 
-The differences between the optimizers can be seen in the following graph, found on [this website](https://medium.com/octavian-ai/which-optimizer-and-learning-rate-should-i-use-for-deep-learning-5acb418f9b2).
+The differences between the optimizers can be seen on [this website](https://medium.com/octavian-ai/which-optimizer-and-learning-rate-should-i-use-for-deep-learning-5acb418f9b2).
 
-![Alt text](https://github.com/Maciej4/localization/blob/master/docs/nntrain.png "Different optimizers")
+**Citation:**
+Mack, David. “How to Pick the Best Learning Rate for Your Machine Learning Project.” *Medium*, Octavian, 9 Apr. 2018, https://medium.com/octavian-ai/which-optimizer-and-learning-rate-should-i-use-for-deep-learning-5acb418f9b2.
+
+
+
+
+
+
 
 ## Neural Network Trials
 In this section several different neural network structures will be tested and recorded. The purpose of this section is to stop unnecessary repetition of tests and to optimize the neural network to maximize accuracy.
