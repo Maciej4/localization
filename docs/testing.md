@@ -91,4 +91,4 @@ Mack, David. “How to Pick the Best Learning Rate for Your Machine Learning Pro
 ## Neural Network Trials
 In this section several different neural network structures will be tested and recorded. The purpose of this section is to stop unnecessary repetition of tests and to optimize the neural network to maximize accuracy.
 
-<img src="tests/1.png" width="200">
+<img src="tests/1.png" width="50%">
