@@ -89,6 +89,32 @@ The differences between the optimizers can be seen on [this website](https://med
 Mack, David. “How to Pick the Best Learning Rate for Your Machine Learning Project.” *Medium*, Octavian, 9 Apr. 2018, https://medium.com/octavian-ai/which-optimizer-and-learning-rate-should-i-use-for-deep-learning-5acb418f9b2.
 
 ## Neural Network Trials
-In this section several different neural network structures will be tested and recorded. The purpose of this section is to stop unnecessary repetition of tests and to optimize the neural network to maximize accuracy.
+In this section several different neural network structures will be tested and recorded. The purpose of this section is to stop unnecessary repetition of tests and to optimize the neural network to maximize accuracy. The *Mean Abs Error* is the average error of both of the outputs of the neural network. It test on a separate testing dataset to make sure that the network has not memorized the data. For reference, the simple arena is a 500 by 500 unit square.
 
-<img src="tests/1.png" width="50%">
+---
+
+<img src="tests/1.png" width="70%">
+
+Simple neural network with 3 layers of 5 neurons each, 32.72 unit error. This one is the starting point
+
+---
+
+<img src="tests/2.png" width="70%">
+
+Larger network with 3 layers of 10 neurons each, which decreased the error to 11.19 units.
+
+---
+
+<img src="tests/3.png" width="70%">
+
+This network has 5 layers of 10 neurons each. This increased the error slightly to 11.59 units.
+
+---
+
+<img src="tests/4.png" width="70%">
+
+9 layers with 10 neurons each. Decreased error to 6.89 units.
+
+---
+
+<img src="tests/5.png" width="70%">
