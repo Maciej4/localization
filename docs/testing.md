@@ -118,3 +118,5 @@ This network has 5 layers of 10 neurons each. This increased the error slightly 
 ---
 
 <img src="tests/5.png" width="70%">
+
+Same as previous, 9 layers with 10 neurons each, the only difference being that it was trained for 2000 Epochs. Interestingly, the error increased to 7.69 units. This is likely due to the variation between epochs as the network tried to learn near the end. This is seen in the graph as the little ups and downs.
